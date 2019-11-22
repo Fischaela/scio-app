@@ -71,9 +71,8 @@ class ScioShareExtension extends Component {
         type: type,
         value: value,
       })
-      // const urlSafeData = JSON.stringify({ data })
-    } catch (e) {
-      // Handle ShareExtension error
+    } catch (error) {
+      console.log(error)
     }
   }
 
