@@ -4,10 +4,10 @@ import { createStackNavigator } from 'react-navigation-stack'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { HomeScreen } from './src/containers/HomeScreen'
+import HomeScreen from './src/containers/HomeScreen'
 
 const App = createStackNavigator({
   Home: HomeScreen,
 })
 
-export default createAppContainer(App)
+export default connect()(createAppContainer(App))

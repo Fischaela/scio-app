@@ -1,7 +1,8 @@
 import { persistStore, persistCombineReducers, createTransform } from 'redux-persist'
 import AsyncStorage from '@react-native-community/async-storage'
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
-import { createStore, compose } from 'redux'
+import { applyMiddleware, createStore, compose } from 'redux'
+import thunk from 'redux-thunk'
 
 import reducers from './reducers'
 
@@ -17,7 +18,9 @@ const configureStore = () => {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const store = createStore(
     reducer,
-    composeEnhancers(),
+    composeEnhancers(
+      applyMiddleware(thunk)
+    ),
   )
   const persistor = persistStore(
     store,

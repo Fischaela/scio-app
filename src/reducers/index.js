@@ -1,18 +1,13 @@
-import sessionReducer, * as FromSession from './sessionReducer'
+import SessionReducer, * as FromSession from './SessionReducer'
+import BookmarksReducer, * as FromBookmarks from './BookmarksReducer'
 
 /**
  * ROOT REDUCER
  * combines all reducers
  */
 const rootReducer = {
-  ['SESSION']: sessionReducer,
+  ['BOOKMARKS']: BookmarksReducer,
+  ['SESSION']: SessionReducer,
 }
 
 export default rootReducer
-
-/**
- * PUBLIC SELECTORS
- */
-export const getSessionState = (store) => (
-  FromSession.getSessionState(store[SESSION])
-)
